@@ -1,0 +1,15 @@
+ 
+ 
+if (document.getElementById("read-<%=@email.id%>").checked === true){
+   document.getElementById("mail-<%=@email.id%>").style.fontWeight = "bold"
+   document.getElementById("span-mail").textContent = "Lu"
+} else {
+   document.getElementById("mail-<%=@email.id%>").style.fontWeight = "initial"
+   document.getElementById("span-mail").textContent = "Non Lu"
+}
+
+mailList = document.getElementById("mail-list")
+mailList.innerHTML = "<%= j render 'update', email_list: @email_list %>"
+
+
+console.log(document.getElementById("read-<%=@email.id%>").checked)

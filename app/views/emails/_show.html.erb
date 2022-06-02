@@ -1,0 +1,22 @@
+<div>
+   <h3>
+   <strong>Object:</strong>
+   <%= @email.object %>
+   </h3>
+
+   <p>
+   <strong>Body:</strong>
+   <%= @email.body %>
+   </p>
+
+
+   <%= link_to "Delete", email_path(@email), method: :delete, class: "btn btn-danger", remote: true %>
+  
+   <% if @email.read == true %>
+      <%= check_box_tag "read-#{@email.id}", 1, email.read, data: { remote: true, url: email_path(email), params:{ id: email.id}.to_param, method: 'put' }%>
+       <span id="span-mail">Lu</span>
+    <% else %>
+    <%= check_box_tag "read-#{@email.id}", 1, email.read, data: { remote: true, url: email_path(email), params:{ id: email.id}.to_param, method: 'put' }%>
+       <span id="span-mail">Non-lu</span>
+     <% end %>  
+</div>

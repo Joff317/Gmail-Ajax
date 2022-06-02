@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<h1>Emails</h1>
+<div class="container mail-container border">
+  <div class="mail-headers row border d-flex p-3">
+    <h4>Liste des emails</h4>
+    <%= link_to 'Nouvel email', new_email_path, class: "btn btn-primary offset-sm-8", remote: true %>
+  </div>
+  <div class="content row">
+    <div id="mail-list">
+      <ul>   
+        <% @emails.each do |email| %>
+          <% if email.read == true %>
+          <li id="mail-<%=email.id%>" class="font-weight-bold">
+          <%= link_to email.object, email_path(email), remote: true %>
+          </li>
+          <% else %>
+          <li id="mail-<%=email.id%>">
+          <%= link_to email.object, email_path(email), remote: true %>
+          </li>
+        <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="border-right-0 border" id="selected-mail">
+    </div>
+    
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<ul>   
+        <% @email_list.each do |email| %>
+          <% if email.read == true %>
+          <li id="mail-<%=email.id%>" class="font-weight-bold">
+          <%= link_to email.object, email_path(email), remote: true %>
+          </li>
+          <% else %>
+          <li id="mail-<%=email.id%>">
+          <%= link_to email.object, email_path(email), remote: true %>
+          </li>
+        <% end %>
+        <% end %>
+</ul>
